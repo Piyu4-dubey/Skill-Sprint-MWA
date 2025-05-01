@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillPrint - Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Define global variables for colors */
+:root {
+  --primary-color: #4A90E2; /* Primary blue color */
+  --secondary-color: #FFA500; /* Orange secondary color */
+  --background-color: #f4f7f6; /* Light background */
+  --text-color: #2c3e50; /* Dark text color */
+}
+
+/* Reset default margin, padding, and box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Header Styling with gradient background */
+header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+:root {
+  --primary-color: #4A90E2; /* Primary blue color */
+  --secondary-color: #FFA500; /* Orange secondary color */
+  --background-color: #f4f7f6; /* Light background */
+  --text-color: #2c3e50; /* Dark text color */
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            width: 100%;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FFA500;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #FFA500;
+        }
+        
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+      
+        /* Login Form Styles */
+        .login-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+        
+        .login-header {
+            padding: 1.5rem;
+            background-color: #FFA500;
+            color: white;
+            text-align: center;
+        }
+        
+        .login-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .login-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .login-form {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .btn {
+            background-color: #FFA500;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            background-color: #e69500;
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #666;
+        }
+        
+        .form-footer a {
+            color: #FFA500;
+            text-decoration: none;
+            margin-left: 0.5rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        /* OTP Input Styles */
+        .otp-digits {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        
+        .otp-digit {
+            width: 3rem;
+            height: 3rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        /* Login Success */
+        .verification-container {
+            display: none;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .verification-container.active {
+            display: block;
+        }
+        
+        .verification-icon {
+            font-size: 3rem;
+            color: #FFA500;
+            margin-bottom: 1rem;
+        }
+        
+        .verification-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .verification-message {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        /*footer*/
+       /* Footer Styling */
+
+footer {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 10px 20px;
+  margin-top: 2rem;
+}
+
+footer p {
+  margin-bottom: 5px;
+}
+
+footer a {
+  color: #ffd700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="logi.png" alt="SkillPrint Logo">
+                    <div class="logo-text">SkillPrint</div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <div class="login-header">
+                <h2>Welcome Back</h2>
+                <p>Login to access your personalized skill recommendations</p>
+            </div>
+            
+            <div class="login-form" id="loginFormSection">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginName">Name</label>
+                        <input type="text" id="loginName" name="loginName" placeholder="Enter your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginMobile">Mobile Number</label>
+                        <input type="tel" id="loginMobile" name="loginMobile" placeholder="Enter your mobile number" required>
+                    </div>
+                    
+                    <button type="button" class="btn" id="loginSendOtpBtn">Send OTP</button>
+                    
+                    <div class="form-group hidden" id="otpSection">
+                        <label for="loginOtp">Enter OTP</label>
+                        <div class="otp-digits">
+                            <input type="text" class="otp-digit" maxlength="1" id="loginOtp1">
+                            <input type="text" class="otp-digit" maxlength="1" id="loginOtp2">
+                            <input type="text" class="otp-digit" maxlength="1" id="loginOtp3">
+                            <input type="text" class="otp-digit" maxlength="1" id="loginOtp4">
+                            <input type="text" class="otp-digit" maxlength="1" id="loginOtp5">
+                            <input type="text" class="otp-digit" maxlength="1" id="loginOtp6">
+                        </div>
+                        <p id="otpTimer" class="text-center">OTP will expire in <span>02:00</span></p>
+                        <button type="submit" class="btn" id="loginSubmitBtn">Login</button>
+                    </div>
+                    
+                    <div class="form-footer">
+                        Don't have an account? <a href="signup.html">Register now</a>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Login Success -->
+            <div class="verification-container" id="loginSuccess">
+                <div class="verification-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 class="verification-title">Login Successful!</h2>
+                <p class="verification-message">You have successfully logged in to your account.</p>
+                <button class="btn" id="goToHomeBtn">Go to Dashboard</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SkillPrint. All rights reserved.</p>
+        <p>Website created by Piyush Ji Dubey</p>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+    </footer>
+
+    <script>
+        // OTP functionality
+        const loginSendOtpBtn = document.getElementById('loginSendOtpBtn');
+        const otpSection = document.getElementById('otpSection');
+        const loginForm = document.getElementById('loginForm');
+        
+        loginSendOtpBtn.addEventListener('click', () => {
+            const loginName = document.getElementById('loginName').value;
+            const loginMobile = document.getElementById('loginMobile').value;
+            
+            if (!loginName || !loginName.trim()) {
+                alert('Please enter your name');
+                return;
+            }
+            
+            if (loginMobile.length !== 10 || !/^\d+$/.test(loginMobile)) {
+                alert('Please enter a valid 10-digit mobile number');
+                return;
+            }
+            
+            // Simulate OTP sending
+            alert(`OTP sent to ${loginMobile}`);
+            loginSendOtpBtn.style.display = 'none';
+            otpSection.classList.remove('hidden');
+            
+            // Start OTP timer
+            startOtpTimer('otpTimer', 120);
+            
+            // Setup OTP input behavior
+            setupOtpInputs();
+        });
+        
+        // Form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate OTP
+            let otp = '';
+            for (let i = 1; i <= 6; i++) {
+                const digit = document.getElementById(`loginOtp${i}`).value;
+                if (!digit) {
+                    alert('Please enter the complete 6-digit OTP');
+                    return;
+                }
+                otp += digit;
+            }
+            
+            // Simulate OTP verification
+            document.getElementById('loginFormSection').style.display = 'none';
+            document.getElementById('loginSuccess').classList.add('active');
+        });
+        
+        // Helper functions
+        function startOtpTimer(elementId, seconds) {
+            const timerElement = document.getElementById(elementId).querySelector('span');
+            let remainingSeconds = seconds;
+            
+            const timer = setInterval(() => {
+                remainingSeconds--;
+                const minutes = Math.floor(remainingSeconds / 60);
+                const secs = remainingSeconds % 60;
+                
+                timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                
+                if (remainingSeconds <= 0) {
+                    clearInterval(timer);
+                    timerElement.parentElement.textContent = 'OTP expired. Please request a new one.';
+                    // Reset the form to initial state
+                    loginSendOtpBtn.style.display = 'block';
+                    otpSection.classList.add('hidden');
+                }
+            }, 1000);
+        }
+        
+        function setupOtpInputs() {
+            const otpInputs = document.querySelectorAll('.otp-digit');
+            
+            otpInputs.forEach((input, index) => {
+                input.addEventListener('input', (e) => {
+                    // Move to next input field if current field is filled
+                    if (e.target.value.length === 1 && index < otpInputs.length - 1) {
+                        otpInputs[index + 1].focus();
+                    }
+                });
+                
+                input.addEventListener('keydown', (e) => {
+                    // Move to previous field on backspace if current field is empty
+                    if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                        otpInputs[index - 1].focus();
+                    }
+                });
+            });
+            
+            // Focus the first input
+            otpInputs[0].focus();
+        }
+        
+        // Redirect to home/dashboard
+        document.getElementById('goToHomeBtn').addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
